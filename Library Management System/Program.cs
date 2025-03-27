@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Collections;
+using System.Runtime.InteropServices;
+using System.Text.Unicode;
 
 namespace Library_Management_System
 {
@@ -65,19 +67,14 @@ namespace Library_Management_System
     abstract class User
     {
         private static int _idCount = 0;
-        private int _userId;
-        private string _fullName;
-        private string _username;
-        private string _password;
-        private string _email;
-        public int UserId { get => _userId; private set; }
-        public string FullName { get => _fullName; private set; }
-        public string Username { get => _username; private set; }
-        public string Password { get => _password; }
-        public string Email { get => _email; private set; }
-        public UserRights Rights { get; private set; }
+        public int UserId { get; private set; }
+        public string FullName { get; private set; }
+        public string Username { get; private set; }
+        private string _passwordHash;
+        public string Email { get; private set; }
+        public Dictionary<Book, UserRights> BookPermissions { get; private set; }
         
-        public User(string fullName, string username, string password, string email)
+        protected User(string fullName, string username, string password, string email)
         {
             if (string.IsNullOrWhiteSpace(fullName))
                 throw new ArgumentException($"Full Name cannot be empty.");
@@ -91,13 +88,27 @@ namespace Library_Management_System
             if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentException($"Email cannot be empty.");
 
-            this._userId = ++_idCount;
-            this._fullName = fullName;
-            this._username = username;
-            this._password = password;
-            this._email = email;
+            UserId = ++_idCount;
+            FullName = fullName;
+            Username = username;
+            _passwordHash = HashPassword(password);
+            Email = email;
+            BookPermissions = new Dictionary<Book, UserRights>();
         }
-        public override string ToString() => $"User ID: {UserId}, Full Name: {FullName}, Username: {Username}," +
-            $" Password: {Password}, Email: {Email}";
+
+        public string HashPassword(string password)
+        {
+            return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password));
+        }
+
+        public bool VerifyPassword(string password)
+        {
+            return _passwordHash == HashPassword(password);
+        }
+
+        public override string ToString()
+        {
+            return $"User ID: {UserId}, Full Name: {FullName}, Username: {Username}, Email: {Email}";
+        }
     }
 }
