@@ -8,24 +8,31 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/avachkov/.nuget/packages/": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/avachkov/RiderProjects/Library Management System/Library Management System/Library Management System.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\My Builds\\Library-Management-System-Github Project\\Library-Management-System\\Library Management System\\Library Management System.csproj",
       "projectName": "Library Management System",
-      "projectPath": "/Users/avachkov/RiderProjects/Library Management System/Library Management System/Library Management System.csproj",
-      "packagesPath": "/Users/avachkov/.nuget/packages/",
-      "outputPath": "/Users/avachkov/RiderProjects/Library Management System/Library Management System/obj/",
+      "projectPath": "C:\\Users\\User\\Desktop\\My Builds\\Library-Management-System-Github Project\\Library-Management-System\\Library Management System\\Library Management System.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\My Builds\\Library-Management-System-Github Project\\Library-Management-System\\Library Management System\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/avachkov/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -38,11 +45,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -54,17 +56,11 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "/Users/avachkov/.dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }
